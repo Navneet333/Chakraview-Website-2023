@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zxx">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>Chakraview - Avantika University</title>
+    <link
+      rel="icon"
+      href="img/chakraview-logo-removebg-preview.png"
+      type="image/icon type"
+    />
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- <link rel="manifest" href="site.webmanifest"> -->
+    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.png" />
+    <!-- Place favicon.ico in the root directory -->
+
+    <!-- CSS here -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/owl.carousel.min.css" />
+    <link rel="stylesheet" href="css/magnific-popup.css" />
+    <link rel="stylesheet" href="css/font-awesome.min.css" />
+    <link rel="stylesheet" href="css/themify-icons.css" />
+    <link rel="stylesheet" href="css/nice-select.css" />
+    <link rel="stylesheet" href="css/flaticon.css" />
+    <link rel="stylesheet" href="css/animate.css" />
+    <link rel="stylesheet" href="css/slicknav.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <style>
+      .circle {
+        width: 200px;
+        height: 200px;
+        background-color: #3498db;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .circle img {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+      }
+
+      .single_speaker {
+        width: auto;
+        /* Adjust the width to your preference */
+        height: auto;
+        /* Adjust the height to your preference */
+        background: #fff;
+        padding: 12px;
+        border-radius: 15px;
+        transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        transform: perspective(1000px) rotateY(0deg);
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      }
+
+      .single_speaker:hover {
+        transform: perspective(1000px) rotateX(10deg);
+        /* box-shadow: 0 0 20px rgba(0, 0, 0, 0.3); */
+      }
+
+      header {
+        z-index: 4;
+      }
+
+      h1 {
+        z-index: 1;
+      }
+
+      #navigation {
+        float: right;
+      }
+
+      .cardf-h {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .cardf-h .cardf-1 {
+        width: 20vw;
+        height: 40vh; 
+        margin: 40px;
+        align-items: center;
+      }
+
+      .cardf-h h3 {
+        font-size: 24px;
+        padding-top: 20px;
+      }
+
+      .cardf-h h4 {
+        color: red;
+      }
+
+      .cards-h {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Adjust column width as needed */
+        column-gap: 80px;
+        justify-content: center; /* Center align the grid */
+        margin: 0 auto; /* Adjust margins for horizontal centering */
+        max-width: 1000px; /* Set a maximum width for the grid */
+        text-align: center;
+      }
+
+      .cards-h .cards-1 {
+        border: 1px solid #ccc;
+        padding: 5%;
+        margin-top: 10%;
+        text-align: center;
+        box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.3); /* Adding box shadow */
+        transition: box-shadow 0.3s ease;
+        position: relative;
+        width: 100%;
+        height: 90%;
+        max-width: 400px; /* Adjust the width */
+        max-height: 550px; /* Adjust the height */
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        border-radius: 10px;
+        margin-bottom: 20px;
+        overflow: hidden;
+      }
+
+      .cards-h .cards-1 img {
+        width: 100%;
+        height: 80%;
+        object-fit: cover;
+        border-radius: 10px;
+        transition: transform 0.3s ease;
+      }
+
+      .cards-h .cards-1 h3 {
+        margin: 5% 0;
+        font-size: 18px;
+      }
+
+      .cards-1:hover {
+        box-shadow: 0 32px 64px 0 rgba(0, 0, 0, 0.5); /* Enhance shadow on hover */
+      }
+
+      @media (max-width: 600px) {
+        .cardf-h .cardf-1 {
+          margin: 10px;
+          width: 80%;
+          height: 90%;
+          max-width: 400px; /* Adjust the width */
+          max-height: 750px; /* Adjust the height */
+        }
+
+        .cards-h {
+          grid-template-columns: 1fr; /* Display cards in a single column */
+          padding-left: 5%;
+          padding-right: 5%;
+        }
+      }
+    
+      .slider_bg_hack {
+          background-image: url(img/hack.jpg);
+          background-size:cover;
+      }
+
+      .container-lch {
+        background-image: url(img/hacks.jpg);
+        background-size: cover;
+        background-position: center;
+        padding: 20px;
+        height: 500px; /* Adjust the height as needed */
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        align-items: center;
+      }
+
+      .card-container {
+        perspective: 1000px;
+        width: 150px; /* Adjust the width as needed */
+        margin-bottom: 20px; /* Adjust the margin as needed */
+        margin-right: 10%;
+        transition: 1s ease;
+      }
+
+      /* Style for the cards */
+      .card-lch {
+        background-color: #1f1f1f;
+        color: #fff;
+        padding: 16px;
+        border-radius: 10px;
+        width: 20vw; /* Adjust the width as needed */
+        height: 30vh;
+        text-align: center;
+        box-shadow: 0px 12px 16px 0px rgba(170, 170, 170, 0.6);
+        transform-style: preserve-3d;
+        transition: transform 0.6s, 1s ease;
+      }
+
+      .card-container:hover {
+        transition: 1s ease;
+        transform: translateX(20px);
+      }
+
+      .card-lch:hover {
+        box-shadow: 0px 24px 30px 0px rgba(170, 170, 170, 1);
+        transition: 1s ease;
+        transform: translateY(-10px);
+      }
+
+      .card-lch .card-face {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        backface-visibility: hidden;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border-radius: 10px;
+      }
+
+      .card-lch .front {
+        background-color: #000;
+        color: #fff;
+      }
+
+      .card-lch .back {
+        background-color: #333;
+        color: #fff;
+        transform: rotateY(180deg);
+      }
+
+      .card-lch .back p {
+        padding: 20px;
+        font-size: 15px;
+        text-align: justify;
+      }
+
+      /* Hover effect */
+      .card-container:hover .card-lch {
+        transform: rotateY(180deg);
+      }
+
+      .card-lch h3 {
+        font-size: 32px;
+        color: white;
+      }
+
+      .card-lch p {
+        font-size: 22px;
+      }
+
+      /* Responsive adjustments for smaller screens */
+      @media (max-width: 768px) {
+
+        .container-lch {
+          background-size: cover;
+          background-position: center;
+          height: fit-content;
+        }
+
+        .card-container {
+          width: 45%; /* Adjust the width for smaller screens */
+        }
+
+        .card-lch {
+          width: calc(50% - 20px); /* Adjust the width for smaller screens */
+          margin-bottom: 20px;
+        }
+
+        .card-lch h3 {
+          font-size: 28px;
+        }
+        .card-lch p {
+          font-size: 18px;
+        }
+
+        .card-lch img {
+          width: 70px;
+        }
+
+        .card-lch .back p {
+          font-size: 8px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .card-lch {
+          width: 100%; /* Full width for screens smaller than 480px */
+        }
+        .card-container {
+          width: 90%; /* Full width for screens smaller than 480px */
+        }
+      }
+
+    </style>
+  </head>
+
+  <body>
+
+    <!-- header-start -->
+    <header>
+
+      <div class="header-area">
+        <div id="sticky-header" class="main-header-area">
+          <div class="container-fluid p-0">
+            <div
+              class="row align-items-center justify-content-between no-gutters"
+            >
+              <div class="col-xl-2 col-lg-2">
+                <div class="logo-img">
+                  <a href="index.html">
+                    <img src="img/Chakraview Logo Website.png" alt="">
+                  </a>
+                </div>
+              </div>
+              <div class="col-xl-8 col-lg-8">
+                <div class="main-menu d-none d-lg-block">
+                  <nav>
+                    <ul id="navigation">
+                      <li><a href="index.html">Home</a></li>
+                      <!-- <li><a href="#schedule">Schedule</a></li> -->
+                      <li><a href="routes.html">Bus Routes</a></li>
+                      <li>
+                        <a href="#">Events <i class="ti-angle-down"></i></a>
+                        <ul class="submenu">
+                          <li><a href="reel.html">Reel/Short Film Making</a></li>
+                          <li><a href="drone.html">Drone Camp</a></li>
+                          <li><a href="esports.html">ESports</a></li>
+                          <li><a href="calligraphy.html">Calligraphy</a></li>
+                          <li><a href="single-blog.html">Movie Night</a></li>
+                          <li>
+                            <a href="3dmodelling.html"
+                              >3D Modelling/Simulation</a
+                            >
+                          </li>
+                          <li>
+                            <a href="tech.html">Tech & Design Showcase</a>
+                          </li>
+                          <li><a href="innovation.html">InnoVation Wars</a></li>
+                          <li><a href="dj.html">DJ Night</a></li>
+                        </ul>
+                        <!-- </li> -->
+                        <!-- <li> -->
+                        <!-- <a href="#">pages <i class="ti-angle-down"></i></a>
+                      <ul class="submenu">
+                        <li><a href="elements.html">elements</a></li>
+                      </ul> -->
+                      </li>
+
+                      <li>
+                        <a
+                          href="https://maps.app.goo.gl/6WYDjZLXDjAJcv8g7"
+                          target="_blank"
+                          >Venue</a
+                        >
+                      </li>
+                      <li><a href="#footerFinal">Contact</a></li>
+                      <!-- <li><a href="contact.html">Contact</a></li> -->
+                    </ul>
+                  </nav>
+                </div>
+              </div>
+              <!-- <div class="col-xl-2 col-lg-2 d-none d-lg-block">
+                <div class="buy_ticket">
+                  <a href="#" class="boxed-btn-white">Participate Now</a>
+                </div>
+              </div> -->
+              <div class="col-12">
+                <div class="mobile_menu d-block d-lg-none"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <!-- header-end -->
+
+    <!-- slider_area_start -->
+    <div class="slider_area slider_bg_hack">
+      <div class="slider_text">
+        <div class="container">
+          <div class="position_relv">
+            <h1 class="opcity_text d-none d-lg-block">Hackathon</h1>
+            <div class="row">
+              <div class="col-xl-9">
+                <div class="title_text">
+                  <h3>
+                    <!-- FLAGSHIP TECH <br />
+                                    EVENT <br /> -->
+                    Hackathon
+                  </h3>
+                  <a href="https://forms.gle/Ho9NVAAbft3HGZd29" class="boxed-btn-white" target="_blank">Register Now</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="countDOwn_area">
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="col-xl-4 col-md-6 col-lg-4">
+              <a
+                href="https://maps.app.goo.gl/6WYDjZLXDjAJcv8g7"
+                target="_blank"
+              >
+                <div class="single_date">
+                  <i class="ti-location-pin"></i>
+                  <span>Avantika University</span>
+                </div>
+              </a>
+            </div>
+            <div class="col-xl-3 col-md-6 col-lg-3">
+              <div class="single_date">
+                <i class="ti-alarm-clock"></i>
+                <span>29th - 30th November 2023</span>
+              </div>
+            </div>
+
+            <div class="col-xl-5 col-md-12 col-lg-5">
+              <span id="clock"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- slider_area_end -->
+    <!-- <div style="background-image: url(img/game.jpg); background-size:cover; background-position: center; background-attachment:fixed;"></div> -->
+
+    <div class="container-lch">
+      <!-- Three Horizontally Aligned Cards -->
+      <div class="card-container">
+        <div class="card-lch">
+          <div class="card-face front">
+            <br>
+            <img width="100vw" src="img/rocket.png" alt=""><br>
+            <h3>Hachathon Kickoff</h3>
+            <p>28th November 2023</p>
+          </div>
+          <div class="card-face back">
+            <p>Gear up for an adrenaline-fueled start to Chakraview Tech Event! On November 28th, our eagerly awaited Hackathon takes center stage. Students, brace yourselves for a coding marathon where innovation meets intensity. As the clock starts ticking, participants will be assigned exciting themes to shape their development journey. Get ready to unleash your creativity and redefine tech boundaries at the Hackathon Kickoff! ⏱️💻🚀</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-container">
+        <div class="card-lch">
+          <div class="card-face front">
+            <br>
+            <img width="100vw" src="img/typing.png" alt=""><br>
+            <h3>Lab Day</h3>
+            <p>29th November 2023</p>
+          </div>
+          <div class="card-face back">
+            <p>The buzz of innovation continues as our talented participants dive deep into their assigned tasks at the Hackathon Lab. Fueled by passion and armed with cutting-edge technology, students transform ideas into reality. The lab becomes a hive of creativity, collaboration, and coding prowess as they bring their projects to life. Get ready for a day of intense focus and groundbreaking developments at the Hackathon Lab! 💡💻🛠️</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-container">
+        <div class="card-lch">
+          <div class="card-face front">
+            <br>
+            <img width="100vw" src="img/trophy1.png" alt=""><br>
+            <h3>Final & Result</h3>
+            <p>30th November 2023</p>
+          </div>
+          <div class="card-face back">
+            <p>After a day of relentless coding and innovation, participants will wrap up their projects. The air is charged with excitement as results are finalized, and the stage is set to unveil the exceptional creations. Join us for the Hackathon Finale, where outstanding efforts will be recognized, and deserving winners will claim their well-earned prizes. It's a celebration of ingenuity and perseverance! 🎉💻🏆</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- brand_area_start -->
+    <div class="brand_area">
+      <div class="container">
+        <div class="row">
+          <div class="col-xl-12">
+            <div class="brand_active owl-carousel">
+              <div class="single_brand text-center">
+                <img src="img/barnd/1.png" alt="" />
+              </div>
+              <div class="single_brand text-center">
+                <img src="img/barnd/2.png" alt="" />
+              </div>
+              <div class="single_brand text-center">
+                <img src="img/barnd/3.png" alt="" />
+              </div>
+              <div class="single_brand text-center">
+                <img src="img/barnd/4.png" alt="" />
+              </div>
+              <div class="single_brand text-center">
+                <img src="img/barnd/5.png" alt="" />
+              </div>
+              <div class="single_brand text-center">
+                <img src="img/barnd/6.png" alt="" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- brand_area_end -->
+
+
+    <!-- Faculty Team Start -->
+    <div class="speakers_area" id="team">
+      <h1 class="horizontal_text d-none d-lg-block">Faculty Heads</h1>
+      <div class="container">
+          <div class="serction_title_large mb-95">
+            <h3>Faculty Coordinator</h3>
+          </div>
+      </div>
+    </div>
+
+    <div class="cardf-h">
+      <div class="cardf-1">
+        <img height="240vh" width="240vw" src="img/faculty/Dinesh_Patel.png" alt="Photo 3">
+        <h3>Dinesh Patel</h3>
+        <h4>Hackathon Head</h4>
+      </div>
+      <!-- More cards will be dynamically added here -->
+    </div>  
+    <!-- Faculty Team End -->
+
+    <!-- Team Leads Start -->
+    <div class="speakers_area" id="team">
+      <h1 class="horizontal_text d-none d-lg-block">Student Leads</h1>
+      <div class="container">
+          <div class="serction_title_large mb-95">
+            <h3>Student Lead Team</h3>
+          </div>
+      </div>
+    </div>
+
+    <div class="cards-h">
+      <div class="cards-1">
+        <img height="350vh" width="240vw" src="img/speakers/1.png" alt="Photo 3">
+        <h3 style="font-size: 24px; padding-top: 20px;">Navneet Parate</h3>
+        <h4 style="color: red;">Hackathon Coordinator</h4>
+      </div>
+      <div class="cards-1">
+        <img height="350vh" width="240vw" src="img/speakers/3.png" alt="Photo 3">
+        <h3 style="font-size: 24px; padding-top: 20px;">Archit Mehta</h3>
+        <h4 style="color: red;">Hackathon Coordinator</h4>
+      </div>
+      <!-- More cards will be dynamically added here -->
+    </div> 
+    <!-- Team Leads End -->
+    
+
+    <!-- faq_area_Start -->
+    <div class="faq_area">
+      <div class="container">
+        <div class="row">
+          <div class="col-xl-12">
+            <div class="serction_title_large" style="margin-bottom: 65px;">
+              <h3>Frequently Ask</h3>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xl-12">
+            <div id="accordion">
+              <div class="card">
+                <div class="card-header" id="headingTwo">
+                  <h5 class="mb-0">
+                    <button
+                      class="btn btn-link collapsed"
+                      data-toggle="collapse"
+                      data-target="#collapseTwo"
+                      aria-expanded="false"
+                      aria-controls="collapseTwo"
+                    >
+                      <img src="img/barnd/info.png" alt="" /> Who can
+                      participate in Chakraview?
+                    </button>
+                  </h5>
+                </div>
+                <div
+                  id="collapseTwo"
+                  class="collapse"
+                  aria-labelledby="headingTwo"
+                  data-parent="#accordion"
+                  style=""
+                >
+                  <div class="card-body">
+                    Chakraview is open to all college students, regardless of
+                    their course or specialization. Any enthusiastic student
+                    with an interest in technology and innovation can
+                    participate in the event.
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-header" id="headingOne">
+                  <h5 class="mb-0">
+                    <button
+                      class="btn btn-link"
+                      data-toggle="collapse"
+                      data-target="#collapseOne"
+                      aria-expanded="false"
+                      aria-controls="collapseOne"
+                    >
+                      <img src="img/barnd/info.png" alt="" />How can I register
+                      for Chakraview?
+                    </button>
+                  </h5>
+                </div>
+                <div
+                  id="collapseOne"
+                  class="collapse show"
+                  aria-labelledby="headingOne"
+                  data-parent="#accordion"
+                  style=""
+                >
+                  <div class="card-body">
+                    To register for Chakraview, click on the buy ticket and
+                    follow the registration instructions provided. Make sure to
+                    complete the registration form and pay any applicable fees,
+                    if mentioned.
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-header" id="headingThree">
+                  <h5 class="mb-0">
+                    <button
+                      class="btn btn-link collapsed"
+                      data-toggle="collapse"
+                      data-target="#collapseThree"
+                      aria-expanded="false"
+                      aria-controls="collapseThree"
+                    >
+                      <img src="img/barnd/info.png" alt="" /> Can I participate
+                      in multiple events during<br />Chakraview?
+                    </button>
+                  </h5>
+                </div>
+                <div
+                  id="collapseThree"
+                  class="collapse"
+                  aria-labelledby="headingThree"
+                  data-parent="#accordion"
+                  style=""
+                >
+                  <div class="card-body">
+                    Yes, participants are allowed to register and participate in
+                    multiple events, provided there are no scheduling conflicts
+                    between the chosen events.
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-header" id="heading_4">
+                  <h5 class="mb-0">
+                    <button
+                      class="btn btn-link collapsed"
+                      data-toggle="collapse"
+                      data-target="#collapse_4"
+                      aria-expanded="false"
+                      aria-controls="collapse_4"
+                    >
+                      <img src="img/barnd/info.png" alt="" /> How can I contact
+                      the organizers if I have<br />more questions about
+                      Chakraview?
+                    </button>
+                  </h5>
+                </div>
+                <div
+                  id="collapse_4"
+                  class="collapse"
+                  aria-labelledby="heading_4"
+                  data-parent="#accordion"
+                >
+                  <div class="card-body">
+                    For any further queries, you can contact the Chakraview
+                    organizing team through the official event website or email
+                    us. We're here to help and provide you with all the
+                    information you need to make the most of your Chakraview
+                    experience!
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- faq_area_end -->
+
+    <!-- footer_start -->
+    <footer id="footerFinal" class="footer footer_bg_1">
+      <div class="circle_ball d-none d-lg-block">
+        <img src="img/banner/footer_ball.png" alt="" />
+      </div>
+      <div class="footer_top">
+        <div class="container">
+          <div class="row">
+            <div class="col-xl-4 col-md-4 col-lg-4">
+              <div class="footer_widget">
+                <h3 class="footer_title">Follow Us</h3>
+                <ul>
+                  <li><a target="_blank" href="https://www.facebook.com/AvantikaUniversity?mibextid=ZbWKwL">Facebook</a></li>
+                  <li><a target="_blank" href="https://twitter.com/AvantikaUniv?t=BcUg-giLKSHFCa2Wz9F4OA&s=09">Twitter</a></li>
+                  <li><a target="_blank" href="https://instagram.com/avantika_chakraview?igshid=OGQ5ZDc2ODk2ZA==">Instagram</a></li>
+                  <li><a target="_blank" href="https://www.youtube.com/@AvantikaUniversity">Youtube</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-xl-4 col-md-4 col-lg-4">
+              <div class="footer_widget">
+                <h3 class="footer_title">Links</h3>
+                <ul>
+                  <li><a target="_blank" href="schedule.html">Schedule</a></li>
+                  <li><a target="_blank" href="speakers.html">Team</a></li>
+                  <li><a target="_blank" href="contact.html">Contact</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-xl-4 col-md-4 col-lg-4">
+              <div class="footer_widget">
+                <h3 class="footer_title">Venue</h3>
+                <p>
+                  Avantika University <br />
+                  Lekoda, Madhya Pradesh 456006<br />
+                  chakraview@avantika.edu.in <br />
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="copy-right_text">
+        <div class="container">
+          <div class="footer_border"></div>
+          <div class="row">
+            <div class="col-xl-12">
+              <p class="copy_right text-center">
+                Designed and Developed with 
+                <i class="fa fa-heart-o" aria-hidden="true"></i> by Chakraview
+                Team
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- footer_end -->
+
+    <!-- JS here -->
+    <script src="js/vendor/modernizr-3.5.0.min.js"></script>
+    <script src="js/vendor/jquery-1.12.4.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/isotope.pkgd.min.js"></script>
+    <script src="js/ajax-form.js"></script>
+    <script src="js/waypoints.min.js"></script>
+    <script src="js/jquery.counterup.min.js"></script>
+    <script src="js/imagesloaded.pkgd.min.js"></script>
+    <script src="js/scrollIt.js"></script>
+    <script src="js/jquery.scrollUp.min.js"></script>
+    <script src="js/wow.min.js"></script>
+    <script src="js/nice-select.min.js"></script>
+    <script src="js/jquery.slicknav.min.js"></script>
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    <script src="js/jquery.countdown.js"></script>
+    <script src="js/plugins.js"></script>
+
+    <!--contact js-->
+    <script src="js/contact.js"></script>
+    <script src="js/jquery.ajaxchimp.min.js"></script>
+    <script src="js/jquery.form.js"></script>
+    <script src="js/jquery.validate.min.js"></script>
+    <script src="js/mail-script.js"></script>
+
+    <script src="js/main.js"></script>
+
+    <script>
+      $(document).ready(function () {
+        $('a[href="#schedule"]').on("click", function (event) {
+          if (this.hash !== "") {
+            event.preventDefault();
+            var hash = this.hash;
+            $("html, body").animate(
+              {
+                scrollTop: $(hash).offset().top,
+              },
+              800, // You can adjust the scrolling speed (in milliseconds)
+              function () {
+                window.location.hash = hash;
+              }
+            );
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
